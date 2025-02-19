@@ -37,8 +37,8 @@ const Nav = ({ openNav }: Props) => {
               <Image
                 src="/images/Logo1-1.png"
                 alt="TP-Logo"
-                width={150}
-                height={150}
+                width={100}
+                height={100}
               />
               {/* <TbAirBalloon className="w-6 h-6 text-white" /> */}
             </div>

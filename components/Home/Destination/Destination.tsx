@@ -5,7 +5,7 @@ const Destination = () => {
   return (
     <div className="py-20">
       {/* Section Heading  */}
-      <SectionHeading heading="ผลงานล่าสุด" />
+      <SectionHeading heading="ผลงานล่าสุด" title="รวมรูปภาพผลงานการรับเหมาก่อสร้างล่าสุดของธีรพงษ์เซอร์วิส" />
       {/* Section Content  */}
       <div className="mt-14 w-[80%] mx-auto">
         <DestinationSlider />

@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import { Athiti } from "next/font/google";
 import "./globals.css";
 import ResponsiveNav from "@/components/Home/Navbar/ResponsiveNav";
-import { hydrateRoot } from "react-dom/client";
+import Footer from "@/components/Home/Footer/Footer";
+import ScrollToTop from "@/components/Helper/ScrollToTop";
 
 const font = Athiti({
   weight: ["200", "300", "400", "500", "600", "700"],
@@ -35,6 +36,8 @@ export default function RootLayout({
       <body className={`${font.className} antialiased`}>
         <ResponsiveNav />
         {children}
+        <Footer />
+        <ScrollToTop />
       </body>
     </html>
   );
