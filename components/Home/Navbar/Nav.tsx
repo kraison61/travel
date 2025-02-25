@@ -4,7 +4,8 @@ import React, { useEffect, useState } from "react";
 import { navLinks } from "@/constant/constant";
 import Link from "next/link";
 import { HiBars3BottomRight } from "react-icons/hi2";
-import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import Logo from "./Logo";
 
 type Props = {
   openNav: () => void;
@@ -32,19 +33,9 @@ const Nav = ({ openNav }: Props) => {
         {/* logo */}
         <Link href="/">
           <div className="flex items-center space-x-2">
-            {/* <div className="w-10 h-10 bg-rose-500 rounded-full flex items-center justify-center flex-col"> */}
             <div className="w-30 h-30 rounded-full flex items-center justify-center flex-col">
-              <Image
-                src="/images/Logo1-1.png"
-                alt="TP-Logo"
-                width={100}
-                height={100}
-              />
-              {/* <TbAirBalloon className="w-6 h-6 text-white" /> */}
+              <Logo />
             </div>
-            <h1 className="text-xl md:text-2xl text-white uppercase font-medium">
-              ธีรพงษ์เซอร์วิส
-            </h1>
           </div>
         </Link>
         {/* NavLinks */}
@@ -61,9 +52,9 @@ const Nav = ({ openNav }: Props) => {
         </div>
         {/* Button */}
         <div className="flex items-center space-x-4">
-          <button className="md:px-12 md:py-2.5 px-8 py-2 font-semibold text-black text-base bg-white hover:bg-gray-200 transition-all duration-200 rounded-lg">
-            Book Now
-          </button>
+          <Button className="md:px-12 md:py-2.5 px-8 py-2 font-semibold text-black text-base bg-white hover:bg-gray-200 transition-all duration-200 rounded-lg">
+            Login
+          </Button>
 
           {/* Burger Menu */}
           <HiBars3BottomRight

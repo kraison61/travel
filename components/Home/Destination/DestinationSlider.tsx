@@ -34,9 +34,9 @@ const DestinationSlider = () => {
     <Carousel
       responsive={responsive}
       infinite={true}
-      autoPlay={true}
-      autoPlaySpeed={5000}
-      keyBoardControl={true}
+      // autoPlay={true}
+      // autoPlaySpeed={5000}
+      // keyBoardControl={true}
     >
       {destinationData.map((data) => {
         return (
@@ -48,18 +48,21 @@ const DestinationSlider = () => {
               <Image
                 src={data.image}
                 alt={data.country}
-                width={500}
-                height={500}
+                width="500"
+                height="500"
                 className="h-full w-full object-cover rounded-md"
               />
               {/* Text Slider  */}
             </div>
             <h1 className="text-lg font-semibold mt-4">{data.country}</h1>
             <p className="text-sm text-gray-600">วันที่ : {formattedDate}</p>
+            
           </div>
         );
       })}
+    
     </Carousel>
-  );
-};
+    
+  )}
+
 export default DestinationSlider;

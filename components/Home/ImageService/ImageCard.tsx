@@ -1,7 +1,9 @@
-import { FaHeart } from "react-icons/fa";
+
 import Image from "next/image";
 
-type Props = {
+
+
+interface Props  {
   image: {
     id: number;
     image: string;
@@ -16,9 +18,9 @@ const ImageCard = ({ image }: Props) => {
   return (
     <div>
       <div className="relative h-[300px] w-full rounded-lg cursor-pointer group overflow-hidden">
-        <div className="absolute top-4 right-4 z-20 w-8 h-8 bg-white rounded-full text-black flex items-center justify-center flex-col">
+        {/* <div className="absolute top-4 right-4 z-20 w-8 h-8 bg-white rounded-full text-black flex items-center justify-center flex-col">
           <FaHeart className="w-3 h-3 " />
-        </div>
+        </div> */}
         {/* overlay  */}
         <div className="absolute inset-0 bg-black opacity-20 z-10"> </div>
         {/* Image  */}
@@ -48,9 +50,14 @@ const ImageCard = ({ image }: Props) => {
         </div>
         {/* Price  */}
         <p className="mt-3 text-gray-700 font-medium">
-          เริ่มต้นที่ <span className="text-blue-600 font-bold">TH${image.price}</span>
+          เริ่มต้นที่{" "}
+          <span className="text-blue-600 font-bold">TH${image.price}</span>
         </p>
       </div>
+
+      {/* Custom Card  */}
+
+      
     </div>
   );
 };

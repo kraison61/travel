@@ -1,5 +1,6 @@
 import SectionHeading from "@/components/Helper/SectionHeading";
 import DestinationSlider from "./DestinationSlider";
+import DefaultDestinatination from "./DefaultDestinatination";
 
 const Destination = () => {
   return (
