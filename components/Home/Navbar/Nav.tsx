@@ -6,6 +6,7 @@ import Link from "next/link";
 import { HiBars3BottomRight } from "react-icons/hi2";
 import { Button } from "@/components/ui/button";
 import Logo from "./Logo";
+import { usePathname } from "next/navigation";
 
 type Props = {
   openNav: () => void;
@@ -23,10 +24,12 @@ const Nav = ({ openNav }: Props) => {
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
+  const pathname = usePathname();
+
   return (
     <div
       className={`${
-        navBg ? "bg-blue-950 shadow-md" : "fixed"
+        navBg || pathname !== "/" ? "bg-blue-950 shadow-md" : "fixed"
       } transition-all duration-200 h-[12vh] z-[1000] fixed w-full`}
     >
       <div className="flex items-center h-full justify-between w-[90%] xl:w-[80%] mx-auto">
