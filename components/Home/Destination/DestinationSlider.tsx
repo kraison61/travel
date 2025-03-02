@@ -23,46 +23,67 @@ const responsive = {
   },
 };
 
-const DestinationSlider = () => {
-    const currentDate = new Date()
-    const formattedDate = currentDate.toLocaleDateString("th-TH", {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-      });
+type serviceProps = {
+  id: number;
+  service_id: number;
+  kw_title: string;
+  kw_des:string,
+  image?:string
+};
+
+const DestinationSlider = ({services}:{services:serviceProps[]}) => {
+  if (services && services.length > 0) {
+    console.log("First Service Object:", services[0]); // แสดงผลออบเจ็กต์แรกในคอนโซล
+  } else {
+    console.log("Services array is empty or undefined.");
+  }
+  const currentDate = new Date();
+  const formattedDate = currentDate.toLocaleDateString("th-TH", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+
   return (
-    <Carousel
-      responsive={responsive}
-      infinite={true}
-      // autoPlay={true}
-      // autoPlaySpeed={5000}
-      // keyBoardControl={true}
-    >
-      {destinationData.map((data) => {
-        return (
-          <div key={data.id} className="m-3">
-            <div className="relative h-[400px]">
-              {/* overlay  */}
-              <div className="absolute inset-0 bg-black opacity-25 rounded-lg"></div>
-              {/* Image  */}
-              <Image
-                src={data.image}
-                alt={data.country}
-                width="500"
-                height="500"
-                className="h-full w-full object-cover rounded-md"
-              />
-              {/* Text Slider  */}
+    <>
+      <Carousel
+        responsive={responsive}
+        infinite={true}
+        autoPlay={true}
+        autoPlaySpeed={3000}
+        keyBoardControl={true}
+      >
+        {destinationData.map((data) => {
+          return (
+            <div key={data.id} className="m-3">
+              <div className="relative h-[400px]">
+                {/* overlay  */}
+                <div className="absolute inset-0 bg-black opacity-25 rounded-lg"></div>
+                {/* Image  */}
+                <Image
+                  src={data.image}
+                  alt={data.country}
+                  width="500"
+                  height="500"
+                  className="h-full w-full object-cover rounded-md"
+                />
+                {/* Text Slider  */}
+              </div>
+              <h1 className="text-lg font-semibold mt-4">{data.country}</h1>
+              <p className="text-sm text-gray-600">วันที่ : {formattedDate}</p>
             </div>
-            <h1 className="text-lg font-semibold mt-4">{data.country}</h1>
-            <p className="text-sm text-gray-600">วันที่ : {formattedDate}</p>
-            
-          </div>
-        );
-      })}
-    
-    </Carousel>
-    
-  )}
+          );
+        })}
+      </Carousel>
+
+      <h1>Fetched Data</h1>
+      {/* {
+        services.map((item)=>{
+          console.log(item.id)
+        })
+      } */}
+    </>
+  );
+};
 
 export default DestinationSlider;

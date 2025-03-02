@@ -10,6 +10,7 @@ import News from "./News/News";
 import Newletter from "./Newletter/Newletter";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import FetchData from "@/data/FetchData";
 
 const Home = () => {
   useEffect(() => {
@@ -28,6 +29,7 @@ const Home = () => {
     <div className="overflow-hidden">
       <Hero />
       <Destination />
+      <FetchData />
       <ImageService />
       <WhyChoose />
       <Reviews />

@@ -1,15 +1,16 @@
+
+
 import SectionHeading from "@/components/Helper/SectionHeading";
 import DestinationSlider from "./DestinationSlider";
-import DefaultDestinatination from "./DefaultDestinatination";
 
-const Destination = () => {
+const Destination = ({services}) => {
   return (
     <div className="py-20">
       {/* Section Heading  */}
-      <SectionHeading heading="ผลงานล่าสุด" title="รวมรูปภาพผลงานการรับเหมาก่อสร้างล่าสุดของธีรพงษ์เซอร์วิส" />
+      <SectionHeading heading="งานรับเหมาที่ให้บริการ" title="งานรับเหมาต่าง ๆ ที่ทางธีรพงษ์เซอร์วิสให้บริการในด้านงานก่อสร้าง" />
       {/* Section Content  */}
       <div className="mt-14 w-[80%] mx-auto">
-        <DestinationSlider />
+        <DestinationSlider services={services} />
       </div>
     </div>
   );

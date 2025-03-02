@@ -2,6 +2,7 @@ import React from "react";
 import { navLinks } from "@/constant/constant";
 import Link from "next/link";
 import { CgClose } from "react-icons/cg";
+import DropdownListMenu from "./DropdownListMenu";
 
 type Props = {
   showNav: boolean;
@@ -29,6 +30,8 @@ const MobileNav = ({ closeNav, showNav }: Props) => {
             </Link>
           );
         })}
+        <Link href="#" className="text-white w-fit text-[20px] ml-12 border-b-[1.5px] pb-1 border-white sm:text-[30px]"><DropdownListMenu  /></Link>
+        
         {/* close button */}
         <CgClose
           onClick={closeNav}

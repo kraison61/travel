@@ -1,8 +1,6 @@
 "use client";
 
-import { useRouter } from "next/router";
 import { usePathname } from "next/navigation";
-import { FaStar } from "react-icons/fa6";
 import Image from "next/image";
 import React from "react";
 
@@ -66,6 +64,7 @@ const About = () => {
       </div>
     </div>
   );
+  
 };
 
 export default About;
