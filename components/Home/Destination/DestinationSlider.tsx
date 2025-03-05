@@ -4,6 +4,7 @@ import { destinationData } from "@/data/data";
 import Image from "next/image";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { GetServerSideProps } from "next";
 
 const responsive = {
   desktop: {
@@ -27,15 +28,30 @@ type serviceProps = {
   id: number;
   service_id: number;
   kw_title: string;
-  kw_des:string,
-  image?:string
+  kw_des: string;
+  kw_h1: string;
+  kw_top1: string;
+  kw_con1: string;
+  kw_con2: string;
+  kw_img1: string;
+  kw_img2: string;
+  created_at: string;
+  updated_at: string;
+  topalt: string;
+  bottomalt: string;
+  image?: string;
 };
 
-const DestinationSlider = ({services}:{services:serviceProps[]}) => {
+
+
+const DestinationSlider = ({
+  services
+}: {
+  services: serviceProps[];
+}) => {
   if (services && services.length > 0) {
-    console.log("First Service Object:", services[0]); // แสดงผลออบเจ็กต์แรกในคอนโซล
   } else {
-    console.log("Services array is empty or undefined.");
+    console.log("Services array is empty or undefined.", services);
   }
   const currentDate = new Date();
   const formattedDate = currentDate.toLocaleDateString("th-TH", {
@@ -46,6 +62,7 @@ const DestinationSlider = ({services}:{services:serviceProps[]}) => {
 
   return (
     <>
+      {/* {{ dataServices }} */}
       <Carousel
         responsive={responsive}
         infinite={true}
@@ -75,13 +92,38 @@ const DestinationSlider = ({services}:{services:serviceProps[]}) => {
           );
         })}
       </Carousel>
-
-      <h1>Fetched Data</h1>
-      {/* {
-        services.map((item)=>{
-          console.log(item.id)
-        })
-      } */}
+      <Carousel
+        responsive={responsive}
+        infinite={true}
+        autoPlay={true}
+        autoPlaySpeed={3000}
+        keyBoardControl={true}
+      >
+        {services.map((data) => {
+          return (
+            <div key={data.id} className="m-3">
+              <div className="relative h-[400px]">
+                {/* overlay  */}
+                <div className="absolute inset-0 bg-black opacity-25 rounded-lg"></div>
+                {/* Image  */}
+                <Image
+                  src={"/" + data.kw_img1}
+                  alt={data.topalt}
+                  width={500}
+                  height={300}
+                  className="h-full w-full object-cover rounded-md"
+                  style={{ objectFit: "cover" }}
+                />
+                {/* Text Slider  */}
+              </div>
+              <h1 className="text-lg font-semibold mt-4">
+                {data.service_names.service_name}
+              </h1>
+              {/* <p className="text-sm text-gray-600">วันที่ : {data.kw_img1}</p> */}
+            </div>
+          );
+        })}
+      </Carousel>
     </>
   );
 };
