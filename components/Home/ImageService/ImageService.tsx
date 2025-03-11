@@ -8,7 +8,7 @@ const ImageService = () => {
       <div className="py-20">
         {/* Section Heading  */}
         <SectionHeading
-          heading="ผลงานประเภทต่าง ๆ ที่ผ่านมา"
+          heading="ภาพผลงานประเภทต่าง ๆ ที่ผ่านมา"
           title="รวมรูปผลงาน โดยการแยกตามประเภทต่าง ๆ ที่ผ่านมา "
         />
         <div className="w-[80%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 items-center mt-16">

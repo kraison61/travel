@@ -1,18 +1,15 @@
-"use client";
 
 import Home from "@/components/Home/Home";
-// import { DataProvider } from "@/context/DataContext";
-
-//Create the context
 
 
-const HomePage = () => {
+const HomePage = async () => {
 
-
+const data = await fetch('http://localhost:5000/api/services')
+const services = await data.json()
 
   return (
       <div>
-        <Home />
+        <Home services={services}/>
       </div>
   );
 };
