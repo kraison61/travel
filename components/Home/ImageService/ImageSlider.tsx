@@ -22,7 +22,8 @@ const responsive = {
     slidesToSlide: 1, // optional, default to 1.
   },
 };
-type serviceType = {
+
+type serviceProps = {
   id: number;
   service_id: number;
   kw_title: string;
@@ -40,9 +41,30 @@ type serviceType = {
   image?: string;
 };
 
-const ServiceSlider = ({ services }: { services: serviceType[] }) => {
+interface imageProps {
+  image: {
+    id: number;
+    service_id: number;
+    img_url: string;
+    created_at: string;
+    updated_at: string;
+    location: string;
+    worked_date: string;
+  };
+}
+
+const ImageSlider = ({ imagesData }: { imagesData: imageProps }) => {
+  const currentDate = new Date();
+  const formattedDate = currentDate.toLocaleDateString("th-TH", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+
+
   return (
-    <div>
+    <>
+      {/* {{ dataServices }} */}
       <Carousel
         responsive={responsive}
         infinite={true}
@@ -50,7 +72,7 @@ const ServiceSlider = ({ services }: { services: serviceType[] }) => {
         autoPlaySpeed={3000}
         keyBoardControl={true}
       >
-        {services.services.map((data) => {
+        {imagesData.map((data) => {
           return (
             <div key={data.id} className="m-3">
               <div className="relative h-[400px]">
@@ -58,24 +80,22 @@ const ServiceSlider = ({ services }: { services: serviceType[] }) => {
                 <div className="absolute inset-0 bg-black opacity-25 rounded-lg"></div>
                 {/* Image  */}
                 <Image
-                  src={"/" + data.kw_img1}
-                  alt={data.topalt}
-                  width={500}
-                  height={300}
+                  src={data.image}
+                  alt={data.country}
+                  width="500"
+                  height="500"
                   className="h-full w-full object-cover rounded-md"
-                  style={{ objectFit: "cover" }}
                 />
                 {/* Text Slider  */}
               </div>
-              <h1 className="text-lg font-semibold mt-4">
-                {data.service_names.service_name}
-              </h1>
-              {/* <p className="text-sm text-gray-600">วันที่ : {data.kw_img1}</p> */}
+              <h1 className="text-lg font-semibold mt-4">{data.country}</h1>
+              <p className="text-sm text-gray-600">วันที่ : {formattedDate}</p>
             </div>
           );
         })}
       </Carousel>
-    </div>
+    </>
   );
 };
-export default ServiceSlider;
+
+export default ImageSlider;

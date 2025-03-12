@@ -10,6 +10,7 @@ import Newletter from "./Newletter/Newletter";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Service from "./Service/Service";
+import { Images } from "lucide-react";
 
 type serviceType = {
   id: number;
@@ -29,24 +30,24 @@ type serviceType = {
   image?: string;
 };
 
-const Home = ({services}:{services:serviceType[]}) => {
+const Home = ({ services, imagesData }: { services: serviceType[] }) => {
   useEffect(() => {
-    const initAOS = async()=>{
+    const initAOS = async () => {
       AOS.init({
-        duration:1000,
-        easing:'ease',
-        once:true,
-        anchorPlacement:"top-bottom"
-      })
-    }
-    initAOS()
-  },[]);
+        duration: 1000,
+        easing: "ease",
+        once: true,
+        anchorPlacement: "top-bottom",
+      });
+    };
+    initAOS();
+  }, []);
   return (
     <div className="overflow-hidden">
       <Hero />
       {/* <Destination /> */}
-      <Service services={services}/>
-      <ImageService />
+      <Service services={services} />
+      <ImageService imagesData={imagesData} />
       {/* <FetchData /> */}
       <WhyChoose />
       <Reviews />

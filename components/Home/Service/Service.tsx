@@ -1,9 +1,5 @@
-'use client'
-
-
-
 import SectionHeading from "@/components/Helper/SectionHeading";
-import ServiceSlider from "./ServiceSlider";
+import ServiceCard from "./ServiceCard";
 
 type serviceType = {
   id: number;
@@ -23,16 +19,32 @@ type serviceType = {
   image?: string;
 };
 
-const Service = ({services}:{services:serviceType[] }) => {
+const Service = ({ services }: { services: serviceType[] }) => {
+  // Change to serviceType[]
   return (
-    <div className="py-20">
-      {/* Section Heading  */}
-      <SectionHeading heading="งานรับเหมาที่ให้บริการ นะจ๊ะ" title="งานรับเหมาต่าง ๆ ที่ทางธีรพงษ์เซอร์วิสให้บริการในด้านงานก่อสร้าง" />
-      {/* Section Content  */}
-      <div className="mt-14 w-[80%] mx-auto">
-        <ServiceSlider services={services} />
+    <>
+      <div className="py-20">
+        {/* Section Heading */}
+        <SectionHeading
+          heading="ผลงานที่ให้บริการ"
+          title="งานรับเหมา และบริการต่าง ๆ ที่ธีรพงษ์เซอร์วิสให้บริการ"
+        />
+        <div className="w-[80%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 items-center mt-16">
+          {/* ServiceCard */}
+          {services.map((data, i) => (
+            <div
+              key={data.id}
+              data-aos="fade-right"
+              data-aos-anchor-placement="top-center"
+              data-aos-delay={`${i * 100}`}
+            >
+              <ServiceCard service={data} />
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
+
 export default Service;
