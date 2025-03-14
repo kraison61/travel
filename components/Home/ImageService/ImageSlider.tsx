@@ -61,7 +61,6 @@ const ImageSlider = ({ imagesData }: { imagesData: imageProps }) => {
     day: "numeric",
   });
 
-
   return (
     <>
       {/* {{ dataServices }} */}
@@ -80,16 +79,23 @@ const ImageSlider = ({ imagesData }: { imagesData: imageProps }) => {
                 <div className="absolute inset-0 bg-black opacity-25 rounded-lg"></div>
                 {/* Image  */}
                 <Image
-                  src={data.image}
-                  alt={data.country}
+                  src={`/${data.img_url}`}
+                  alt={data.topalt}
                   width="500"
                   height="500"
                   className="h-full w-full object-cover rounded-md"
                 />
                 {/* Text Slider  */}
               </div>
-              <h1 className="text-lg font-semibold mt-4">{data.country}</h1>
-              <p className="text-sm text-gray-600">วันที่ : {formattedDate}</p>
+              <h1 className="text-lg font-semibold mt-4">{data.location}</h1>
+              <p className="text-sm text-gray-600">
+                วันที่ : {""}
+                {new Date(data.worked_date).toLocaleDateString("th-TH", {
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                })}
+              </p>
             </div>
           );
         })}
