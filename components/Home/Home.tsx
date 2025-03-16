@@ -10,7 +10,6 @@ import Newletter from "./Newletter/Newletter";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Service from "./Service/Service";
-import FetchData from "@/data/FetchData";
 
 const Home = ({ services, imagesData }) => {
   useEffect(() => {

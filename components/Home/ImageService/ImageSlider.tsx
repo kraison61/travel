@@ -62,7 +62,6 @@ const ImageSlider = ({ imagesData }: { imagesData: imageProps }) => {
     month: "short",
     day: "numeric",
   });
-  console.log({ imagesData });
 
   return (
     <>
