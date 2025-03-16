@@ -39,7 +39,6 @@ const Service = ({ services }: { services: serviceType[] }) => {
               data-aos-anchor-placement="top-center"
               data-aos-delay={`${i * 100}`}
             >
-
               <ServiceCard service={data} />
             </div>
           ))}

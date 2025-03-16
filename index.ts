@@ -12,8 +12,8 @@ app.use(cors());
 app.get(
   "/api/images",
   async function (req: Request, res: Response, next: NextFunction) {
-    const images = await prisma.image_uploads.findMany();
-    res.json({ images: images });
+    const imagesData = await prisma.image_uploads.findMany();
+    res.json({ imagesData });
   }
 );
 app.get(
@@ -39,11 +39,11 @@ app.get(
   async function (req: Request, res: Response, next: NextFunction) {
     try {
       const services = await prisma.services.findMany({
-        include:{
-          service_names:true
-        }
+        include: {
+          service_names: true,
+        },
       });
-      
+
       res.json({ services });
     } catch (error) {
       console.error("Error fetching services:", error);
@@ -65,6 +65,42 @@ app.get(
       // }
     });
     console.log(service);
+    res.json();
+  }
+);
+
+// Blog API
+app.get(
+  "/api/blogs",
+  async function (req: Request, res: Response, next: NextFunction) {
+    try {
+      const blogs = await prisma.blogs.findMany({
+        include: {
+          service_names: true,
+        },
+      });
+
+      res.json({ blogs });
+    } catch (error) {
+      console.error("Error fetching services:", error);
+      res.status(500).json({ error: "Internal server error" });
+    }
+  }
+);
+
+app.get(
+  "/api/blogs/:id",
+  async function (req: Request, res: Response, next: NextFunction) {
+    const id = req.params.id;
+    const blog = await prisma.services.findUnique({
+      where: {
+        id: parseInt(id),
+      },
+      // include:{
+      //   image_uploads:true
+      // }
+    });
+    console.log(blog);
     res.json();
   }
 );

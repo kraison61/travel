@@ -5,9 +5,7 @@ import "./globals.css";
 import ResponsiveNav from "@/components/Home/Navbar/ResponsiveNav";
 import Footer from "@/components/Home/Footer/Footer";
 import ScrollToTop from "@/components/Helper/ScrollToTop";
-
-import {ClerkProvider } from '@clerk/nextjs'
-import { Toaster } from "@/components/ui/sonner"
+import { Toaster } from "@/components/ui/sonner";
 
 const font = Athiti({
   weight: ["200", "300", "400", "500", "600", "700"],
@@ -35,7 +33,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ClerkProvider>
     <html lang="en">
       <body className={`${font.className} antialiased`}>
         <ResponsiveNav />
@@ -45,6 +42,5 @@ export default function RootLayout({
         <ScrollToTop />
       </body>
     </html>
-    </ClerkProvider>
   );
 }

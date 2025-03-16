@@ -10,27 +10,9 @@ import Newletter from "./Newletter/Newletter";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Service from "./Service/Service";
-import { Images } from "lucide-react";
+import FetchData from "@/data/FetchData";
 
-type serviceType = {
-  id: number;
-  service_id: number;
-  kw_title: string;
-  kw_des: string;
-  kw_h1: string;
-  kw_top1: string;
-  kw_con1: string;
-  kw_con2: string;
-  kw_img1: string;
-  kw_img2: string;
-  created_at: string;
-  updated_at: string;
-  topalt: string;
-  bottomalt: string;
-  image?: string;
-};
-
-const Home = ({ services, imagesData }: { services: serviceType[] }) => {
+const Home = ({ services, imagesData }) => {
   useEffect(() => {
     const initAOS = async () => {
       AOS.init({
@@ -47,7 +29,7 @@ const Home = ({ services, imagesData }: { services: serviceType[] }) => {
       <Hero />
       {/* <Destination /> */}
       <Service services={services} />
-      <ImageService imagesData={imagesData} />
+      <ImageService imagesData={imagesData.imagesData} />
       {/* <FetchData /> */}
       <WhyChoose />
       <Reviews />

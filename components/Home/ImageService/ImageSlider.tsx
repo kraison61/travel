@@ -1,9 +1,11 @@
 "use client";
 
 import { destinationData } from "@/data/data";
+import { GetStaticPropsContext } from "next";
 import Image from "next/image";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import Link from "next/link";
 
 const responsive = {
   desktop: {
@@ -60,6 +62,7 @@ const ImageSlider = ({ imagesData }: { imagesData: imageProps }) => {
     month: "short",
     day: "numeric",
   });
+  console.log({ imagesData });
 
   return (
     <>
@@ -74,28 +77,32 @@ const ImageSlider = ({ imagesData }: { imagesData: imageProps }) => {
         {imagesData.map((data) => {
           return (
             <div key={data.id} className="m-3">
-              <div className="relative h-[400px]">
-                {/* overlay  */}
-                <div className="absolute inset-0 bg-black opacity-25 rounded-lg"></div>
-                {/* Image  */}
-                <Image
-                  src={`/${data.img_url}`}
-                  alt={data.topalt}
-                  width="500"
-                  height="500"
-                  className="h-full w-full object-cover rounded-md"
-                />
-                {/* Text Slider  */}
-              </div>
-              <h1 className="text-lg font-semibold mt-4">{data.location}</h1>
-              <p className="text-sm text-gray-600">
-                วันที่ : {""}
-                {new Date(data.worked_date).toLocaleDateString("th-TH", {
-                  year: "numeric",
-                  month: "short",
-                  day: "numeric",
-                })}
-              </p>
+              <Link href={`/${data.img_url}`}>
+                <div className="relative h-[400px]">
+                  {/* overlay  */}
+                  <div className="absolute inset-0 bg-black opacity-25 rounded-lg"></div>
+                  {/* Image  */}
+
+                  <Image
+                    src={`/${data.img_url}`}
+                    alt={`Image of ${data.location}`}
+                    width="500"
+                    height="500"
+                    className="h-full w-full object-cover rounded-md cursor-pointer"
+                  />
+
+                  {/* Text Slider  */}
+                </div>
+                <h1 className="text-lg font-semibold mt-4">{data.location}</h1>
+                <p className="text-sm text-gray-600">
+                  วันที่ : {""}
+                  {new Date(data.worked_date).toLocaleDateString("th-TH", {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </p>
+              </Link>
             </div>
           );
         })}

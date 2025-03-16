@@ -2,6 +2,7 @@ import SectionHeading from "@/components/Helper/SectionHeading";
 import ImageSlider from "./ImageSlider";
 
 const ImageService = ({ imagesData }) => {
+  console.log({ imagesData });
   return (
     <div className="py-20">
       {/* Section Heading  */}
