@@ -11,7 +11,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Service from "./Service/Service";
 
-const Home = ({ services, imagesData }) => {
+const Home = ({ services, imagesData }: { services: any; imagesData: any }) => {
   useEffect(() => {
     const initAOS = async () => {
       AOS.init({
@@ -26,10 +26,8 @@ const Home = ({ services, imagesData }) => {
   return (
     <div className="overflow-hidden">
       <Hero />
-      {/* <Destination /> */}
       <Service services={services} />
       <ImageService imagesData={imagesData.imagesData} />
-      {/* <FetchData /> */}
       <WhyChoose />
       <Reviews />
       <News />

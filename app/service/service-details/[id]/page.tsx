@@ -7,16 +7,16 @@ import Image from "next/image";
 import React from "react";
 
 const ServicePage = () => {
-  const pathname = usePathname();
-
-  console.log(pathname); // ตัวอย่าง: /products/123
+  const pathname = usePathname(); // ตัวอย่าง: /products/123
   return (
     <div className="flex items-center justify-center flex-col">
-      <h1 className="text-3xl relative pt-28 text-blue-950 font-semibold">Services</h1>
+      <h1 className="text-3xl relative pt-28 text-blue-950 font-semibold">
+        Services
+      </h1>
 
       <div className="w-[80%] mx-auto grid items-center grid-cols-1 lg:grid-cols-2 gap-10 pt-10">
         {/* Text Content  */}
-       
+
         <div>
           <h2 className="text-2xl font-semibold text-gray-800">
             What our customers are saying us?

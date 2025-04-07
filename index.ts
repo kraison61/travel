@@ -28,10 +28,11 @@ app.get(
       //   image_uploads:true
       // }
     });
-    console.log(image);
     res.json();
   }
 );
+
+
 
 // Services API
 app.get(
@@ -64,7 +65,6 @@ app.get(
       //   image_uploads:true
       // }
     });
-    console.log(service);
     res.json();
   }
 );
@@ -100,7 +100,6 @@ app.get(
       //   image_uploads:true
       // }
     });
-    console.log(blog);
     res.json();
   }
 );
@@ -108,5 +107,3 @@ app.get(
 app.listen(5000, function () {
   console.log("CORS-enabled web server listening on port 5000");
 });
-
-// console.log("test")
