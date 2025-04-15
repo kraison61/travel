@@ -45,7 +45,7 @@ const News = () => {
         setNewsData(data.blogs || []);
       } catch (err) {
         console.error("Error fetching news:", err);
-        setError(err.message);
+        // setError(err.message);
       } finally {
         setLoading(false);
       }

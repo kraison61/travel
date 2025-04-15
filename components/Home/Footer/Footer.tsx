@@ -2,6 +2,7 @@
 import { FaFacebook, FaTiktok, FaTwitter } from "react-icons/fa6";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { navLinks } from "@/constant/constant";
 
 const Footer = () => {
   const pathname = usePathname();
@@ -19,74 +20,36 @@ const Footer = () => {
             pathname !== "/" ? "bg-blue-500" : ""
           }  mx-auto items-start grid-cols-2 sm:grid-cols-2 grid md:grid-cols-2 lg:grid-cols-4 gap-10`}
         > */}
-        <div className="w-[80%] mx-auto items-start grid-cols-2 sm:grid-cols-2 grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="w-[80%] mx-auto items-center grid-cols-2 sm:grid-cols-1 grid md:grid-cols-1 lg:grid-cols-2 gap-10">
           {/* 1st part  */}
           <div className="space-y-5">
             <h1 className="text-lg font-bold">Company</h1>
-            <p className="font-medium cursor-pointer text-sm hover:text-blue-950">
-              About Us
-            </p>
-            <p className="font-medium cursor-pointer text-sm hover:text-blue-950">
-              Careers
-            </p>
-            <p className="font-medium cursor-pointer text-sm hover:text-blue-950">
-              Blogs
-            </p>
-            <p className="font-medium cursor-pointer text-sm hover:text-blue-950">
-              Gift Cards
-            </p>
-            <p className="font-medium cursor-pointer text-sm hover:text-blue-950">
-              Magazine
-            </p>
+            {navLinks.map((item) => {
+              return (
+                <p className="font-medium cursor-pointer text-sm hover:text-blue-950">
+                  <Link key={item.id} href={item.url}>{item.label}</Link>
+                </p>
+              );
+            })} 
           </div>
-          {/* 2nd part  */}
-          <div className="space-y-5">
-            <h1 className="text-lg font-bold">Support</h1>
-            <p className="font-medium cursor-pointer text-sm hover:text-blue-950">
-              Contact
-            </p>
-            <p className="font-medium cursor-pointer text-sm hover:text-blue-950">
-              Legal Notice
-            </p>
-            <p className="font-medium cursor-pointer text-sm hover:text-blue-950">
-              Privacy Policy
-            </p>
-            <p className="font-medium cursor-pointer text-sm hover:text-blue-950">
-              Terms & Conditions
-            </p>
-            <p className="font-medium cursor-pointer text-sm hover:text-blue-950">
-              Sitemap
-            </p>
-          </div>
-          {/* 3rd part  */}
-          <div className="space-y-5">
-            <h1 className="text-lg font-bold">Other Services</h1>
-            <p className="font-medium cursor-pointer text-sm hover:text-blue-950">
-              Car hire
-            </p>
-            <p className="font-medium cursor-pointer text-sm hover:text-blue-950">
-              Activity Finder
-            </p>
-            <p className="font-medium cursor-pointer text-sm hover:text-blue-950">
-              Tour List
-            </p>
-            <p className="font-medium cursor-pointer text-sm hover:text-blue-950">
-              Flight Finder
-            </p>
-            <p className="font-medium cursor-pointer text-sm hover:text-blue-950">
-              Travel Agents
-            </p>
-          </div>
-          {/* 4th part  */}
+          {/* 2th part  */}
           <div>
             <h1 className="text-lg font-bold">Contact us</h1>
             <div className="mt-6">
-              <h1 className="text-sm">Our Mobile Number</h1>
-              <h1 className="text-base font-bold">+66 123 45678</h1>
+              <h1 className="text-sm">บริษัท ธีรพงษ์ เซอร์วิส จำกัด</h1>
+              <h1 className="text-base font-bold">
+                เลขที่ 14 หมู่ที่ 5 ต.บางกร่าง อ.เมืองนนทบุรี จ.นนทบุรี
+              </h1>
             </div>
             <div className="mt-6">
-              <h1 className="text-sm">Our Email</h1>
-              <h1 className="text-base font-bold">oun.cav@gmail.com</h1>
+              <h1 className="text-sm">โทร</h1>
+              <h1 className="text-base font-bold">062-718-8847</h1>
+            </div>
+            <div className="mt-6">
+              <h1 className="text-sm">Email</h1>
+              <h1 className="text-base font-bold">
+                theeraphong.services@gmail.com
+              </h1>
             </div>
           </div>
         </div>

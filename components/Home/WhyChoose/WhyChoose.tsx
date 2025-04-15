@@ -8,20 +8,22 @@ const WhyChoose = () => {
     <div className="pt-16 pb-24">
       {/* Section Heading  */}
 
-      <SectionHeading heading="Why Choose us" />
+      <SectionHeading heading="สิ่งที่ทำให้เราแตกต่าง" />
       <div className="grid w-[80%] mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16 items-center mt-20">
         {/* Why Choose us  */}
         <div data-aos="fade-up" data-aos-anchor-placement="top-center" >
-          <WhyChooseCard image="/images/c1.svg" title="Best Price Guarantee" />
+          <WhyChooseCard image="/images/c1.svg" title="สิ่งที่เชื่อมั่น และยึดถือมาตลอด" content="ยึดมั่นในความซื้อสัตย์ เพื่อรักษาความเชื่อมั่น และเชื่อถือของลูกค้าไว้ตลอดไป" />
         </div>
         <div data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-delay="150">
           <WhyChooseCard
             image="/images/c2.svg"
             title="Easy and Quick Booking"
+            content=""
           />
         </div>
         <div data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-delay="300">
-          <WhyChooseCard image="/images/c3.svg" title="Customer care 24/7" />
+          <WhyChooseCard image="/images/c3.svg" title="Customer care 24/7" content="lotem5
+          " />
         </div>
       </div>
     </div>
